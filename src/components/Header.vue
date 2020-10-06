@@ -18,7 +18,7 @@
 export default {
   data() {
     return {
-      logo: 'img/dobro/png/28_@dobro_w@2.png',
+      logo: 'img/dobro/png/32_@dobro_w.png',
     };
   },
 };
