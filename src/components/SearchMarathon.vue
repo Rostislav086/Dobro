@@ -59,7 +59,7 @@
 </template>
 
 <script>
-// import axios from 'axios';
+import axios from 'axios';
 // import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 // import 'swiper/css/swiper.css';
 
@@ -84,13 +84,13 @@ export default {
       },
     };
   },
-  // methods: {
-  //   getMarathons() {
-  //     axios.get(this.URL).then(response => {
-  //       this.marathons = response.data;
-  //     });
-  //   },
-  // },
+  methods: {
+    getMarathons() {
+      axios.get(this.URL).then((response) => {
+        this.marathons = response.data;
+      });
+    },
+  },
   mounted() {
     this.getMarathons();
   },

@@ -76,7 +76,7 @@
 // import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 import axios from 'axios';
 import 'swiper/css/swiper.css';
-// import bridge from '@vkontakte/vk-bridge';
+import bridge from '@vkontakte/vk-bridge';
 
 export default {
   // components: {
@@ -106,18 +106,19 @@ export default {
     },
     createMarathon() {},
 
-    // async getUserInfo() {
-    //     this.user = await bridge.send('VKWebAppGetUserInfo');
-    // },
-    // async getMarathons(user) {
-    //
-    //     this.marathons = await axios.post(`/api/user`, {user});
-    // }
+    async getUserInfo() {
+      this.user = await bridge.send('VKWebAppGetUserInfo');
+    },
+    async getMarathons(user) {
+      this.marathons = await axios.post('/api/user', { user });
+    },
   },
-  // mounted: async function() {
-  //   const user = await bridge.send('VKWebAppGetUserInfo');
-  //   const response = await axios.post(`/api/user`, { user });
-  //   this.marathons = response.data;
-  // }
+  mounted() {
+    const user = bridge.send('VKWebAppGetUserInfo');
+    const response = axios.post('/api/user', { user });
+    this.marathons = response.data;
+
+    bridge.send('VKWebAppInit', {});
+  },
 };
 </script>

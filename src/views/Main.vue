@@ -1,14 +1,8 @@
 <template>
     <div class="content">
         <div class="tabs">
-            <input
-                class="tabs-marathon__my"
-                type="radio"
-                name="tabs-marathon"
-                id="tab-btn-1"
-                value
-                checked
-            />
+            <input class="tabs-marathon__my" type="radio" name="tabs-marathon" id="tab-btn-1"
+            checked/>
             <label class="tabs-btn__title" for="tab-btn-1">Мои марафоны</label>
             <input
                 class="tabs-marathon__search"
