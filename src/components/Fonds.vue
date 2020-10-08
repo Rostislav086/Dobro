@@ -65,6 +65,7 @@ export default {
   components: { FondsList },
   data() {
     return {
+      // categoriesURL: 'https://marathon-dobro.h1n.ru/api/fonds',
       categories: [],
     };
   },

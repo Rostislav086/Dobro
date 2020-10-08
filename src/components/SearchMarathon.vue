@@ -26,7 +26,7 @@
             <div class="my-marathon">
                 <div
                     class="my-marathon__block"
-                    v-for="marathon in marathons"
+                    v-for="marathon in marathons"git 
                     :key="marathon.id"
                 >
                     <div class="item">
@@ -73,7 +73,7 @@ export default {
   // },
   data() {
     return {
-      URL: '/api/events',
+      URL: 'https://marathon-dobro.h1n.ru/api/fonds',
       marathons: [],
       swiperOptions: {
         loop: true,

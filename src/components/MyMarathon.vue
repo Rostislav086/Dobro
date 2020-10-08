@@ -85,7 +85,8 @@ export default {
   // },
   data() {
     return {
-      URL: '/api/fonds',
+      fondsURL: 'https://marathon-dobro.h1n.ru/api/fonds',
+      userURL: 'https://marathon-dobro.h1n.ru/api/user',
       user: null,
       fonds: [],
       marathons: [],
@@ -100,7 +101,7 @@ export default {
   },
   methods: {
     getFonds() {
-      axios.get(this.URL).then((response) => {
+      axios.get(this.fondsURL).then((response) => {
         this.fonds = response.data;
       });
     },
@@ -110,12 +111,12 @@ export default {
       this.user = await bridge.send('VKWebAppGetUserInfo');
     },
     async getMarathons(user) {
-      this.marathons = await axios.post('/api/user', { user });
+      this.marathons = await axios.post(this.userURL, { user });
     },
   },
   mounted() {
     const user = bridge.send('VKWebAppGetUserInfo');
-    const response = axios.post('/api/user', { user });
+    const response = axios.post(this.userURL, { user });
     this.marathons = response.data;
 
     bridge.send('VKWebAppInit', {});
